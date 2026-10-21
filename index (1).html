@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trastornos depresivos y bipolar · MedON Student</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap">
+    <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+:root{
+  --color-primary:#0f3f6b; --color-primary-dark:#0a2c4d; --color-primary-light:#1f6fb2;
+  --color-accent:#1f6fb2; --color-accent-dark:#175a93; --color-accent-light:#bcdaf5;
+  --color-secondary:#5aa3e0; --color-bg-light:#f3f7fb; --color-bg-lighter:#eaf2fa; --color-white:#fff; --color-text:#14304a;
+  --line:#d6e3ef; --muted:#4f6b85;
+  --shadow-sm:none; --shadow-md:none; --shadow-lg:0 6px 18px rgba(15,63,107,.10);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--color-bg-light);color:var(--color-text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+a{color:var(--color-primary-light)} a:hover{color:var(--color-primary)}
+p{text-wrap:pretty}
+.mtop{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+.mtop .in{max-width:1200px;margin:0 auto;padding:8px 16px;display:flex;align-items:center}
+.mtop a{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--color-primary);min-width:0}
+.mtop .lg{width:132px;height:54px;overflow:hidden;position:relative;flex-shrink:0}
+.mtop .lg img{position:absolute;width:149px;left:-8px;top:-49px;mix-blend-mode:multiply;filter:hue-rotate(70deg) saturate(1.1)}
+.mtop .t{display:flex;flex-direction:column;gap:2px;padding-left:16px;border-left:1px solid var(--line);min-width:0}
+.mtop .t b{font-size:17px;font-weight:700;line-height:1.2}
+.mtop .t small{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--color-primary-light)}
+@media (max-width:560px){.mtop .lg{width:104px;height:44px}.mtop .lg img{width:118px;left:-6px;top:-39px}.mtop .t b{font-size:15px}.mtop .t{padding-left:12px}}
+header.hero{background:var(--color-primary);color:#fff;padding:48px 20px 44px}
+.header-content{max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--color-accent-light);text-transform:uppercase}
+h1{font-size:clamp(30px,4.6vw,54px);line-height:1.08;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+.subtitle{font-size:18px;opacity:.88;max-width:62ch}
+.container{max-width:1200px;margin:0 auto;padding:24px clamp(12px,3vw,20px)}
+.toc{position:sticky;top:71px;z-index:20;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;margin-bottom:24px}
+.toc h2{display:none}
+.toc-list{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.toc-item{flex:0 0 auto;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--color-primary);font-weight:600;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:background .2s,color .2s}
+.toc-item:hover,.toc-item.active{background:var(--color-primary);color:#fff;border-color:var(--color-primary)}
+.section{background:#fff;padding:clamp(20px,4vw,40px);margin-bottom:24px;border-radius:18px;border:1px solid var(--line);scroll-margin-top:150px}
+.section h2{color:var(--color-primary);font-size:clamp(24px,3vw,32px);line-height:1.15;margin-bottom:22px;font-weight:800;text-wrap:balance}
+.section h3{color:var(--color-primary-light);font-size:clamp(19px,2.2vw,23px);margin:28px 0 14px;font-weight:700}
+.section h4{color:var(--color-primary);font-size:17px;margin:14px 0 8px;font-weight:700}
+.definition-box,.criteria-box,.warning-box,.info-box,.key-points,.symptom-list,.dsm5-criteria,.reference{padding:18px 20px;margin:18px 0;border-radius:14px;border:1px solid var(--line)}
+.definition-box{background:#eaf2fa;border-color:#c9dcef}
+.definition-box strong{color:var(--color-primary)}
+.criteria-box,.dsm5-criteria{background:#f3f7fb}
+.criteria-box h4,.dsm5-criteria h4,.info-box h4,.key-points h4{color:var(--color-primary);margin-bottom:10px}
+.warning-box{background:#fdecea;border-color:#f3c7c2}
+.warning-box h4{color:#8e1c1c;margin-bottom:10px}
+.info-box{background:#fff}
+.key-points{background:#eaf2fa;border-color:#c9dcef}
+.symptom-list{background:#fff}
+.key-points ul,.symptom-list ul{list-style:none;padding:0}
+.key-points li,.symptom-list li{padding:7px 0 7px 22px;position:relative}
+.key-points li:before,.symptom-list li:before{content:"";position:absolute;left:4px;top:15px;width:8px;height:8px;border-radius:50%;background:var(--color-primary-light)}
+.comparison-table{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin:20px 0}
+.comparison-item{padding:18px 20px;border:1px solid var(--line);border-radius:14px;background:#fff;transition:border-color .2s}
+.comparison-item:hover{border-color:var(--color-primary-light)}
+.comparison-item h4{color:var(--color-primary);margin-bottom:10px;font-weight:700;font-size:17px}
+.section table{width:100%;border-collapse:collapse;margin:20px 0;border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:15px}
+.section table th{background:var(--color-primary);color:#fff;padding:12px 14px;text-align:left;font-weight:600}
+.section table td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+.section table tr:nth-child(even) td{background:#f7fafd}
+.section table tbody tr:hover td{background:#eaf2fa}
+.epidemiology{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin:20px 0}
+.stat-card{background:var(--color-primary);color:#fff;padding:24px;border-radius:16px;text-align:center}
+.stat-card.orange{background:#8a4b00}
+.stat-card.red{background:#8e1c1c}
+.stat-number{font-size:clamp(30px,4vw,42px);font-weight:800;line-height:1.1;margin-bottom:8px}
+.stat-label{font-size:15px;opacity:.92;line-height:1.4}
+.highlight{background:#e3eefb;padding:1px 6px;border-radius:6px;font-weight:600;color:var(--color-primary)}
+.badge{display:inline-block;background:#eaf2fa;color:var(--color-primary);padding:5px 12px;border-radius:999px;font-size:13.5px;margin:0 6px 6px 0;font-weight:600;font-family:'IBM Plex Mono',monospace}
+.reference{background:#f3f7fb;font-size:14px;color:var(--muted)}
+footer{background:var(--color-primary);color:#dbe8f5;margin-top:40px}
+.footer-content{max-width:900px;margin:0 auto;padding:30px 16px;display:grid;gap:12px;justify-items:center;text-align:center}
+.back-to-top{position:fixed;bottom:22px;right:22px;background:var(--color-primary);color:#fff;width:46px;height:46px;border-radius:50%;display:none;align-items:center;justify-content:center;cursor:pointer;font-weight:700;font-size:18px;z-index:40}
+.back-to-top.show{display:flex}
+@media (max-width:640px){.section table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}}
+
+/* ===== Laboratorio sináptico ===== */
+        .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.visible { opacity: 1; transform: none; }
+
+        .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--c); margin-right: 7px; vertical-align: middle; box-shadow: 0 0 0 3px color-mix(in srgb, var(--c) 20%, transparent); }
+
+        .cycle-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin: 25px 0; }
+        .cycle-step { display: flex; gap: 12px; align-items: flex-start; padding: 14px; border-radius: 10px; background: var(--color-bg-light); border: 2px solid #d6e3ef; transition: all .35s ease; }
+        .cycle-step strong { display: block; color: var(--color-primary); font-size: .95em; }
+        .cycle-step small { display: block; color: #5b6b78; font-size: .82em; line-height: 1.35; }
+        .cs-num { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #d6e3ef; color: var(--color-primary); font-weight: 700; transition: all .35s ease; }
+        .cycle-step.active { border-color: var(--color-accent); background: #eaf2fa; transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+        .cycle-step.active .cs-num { background: var(--color-accent); color: #fff; }
+
+        .synapse-lab { margin: 25px 0 30px; border-radius: 16px; border: 1px solid #d6e3ef; background:#fbfdff; padding: 22px; box-shadow: var(--shadow-md); }
+        .lab-controls { display: grid; grid-template-columns: 1.35fr 1fr; gap: 16px 24px; margin-bottom: 18px; }
+        .ctrl-group { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+        .ctrl-label { font-size: .78em; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--color-primary-light); display: flex; justify-content: space-between; align-items: center; }
+        .ctrl-label output { font-size: 1.15em; letter-spacing: 0; text-transform: none; color: var(--color-primary); background: #fff; border: 1px solid #d6e3ef; border-radius: 6px; padding: 1px 8px; }
+        .seg { display: flex; flex-wrap: wrap; gap: 6px; }
+        .seg button, .stage-buttons button { font: inherit; font-size: .9em; font-weight: 600; cursor: pointer; padding: 8px 14px; border-radius: 8px; border: 2px solid #d6e3ef; background: #fff; color: var(--color-primary); transition: all .2s ease; }
+        .seg button:hover, .stage-buttons button:hover { border-color: var(--color-accent); }
+        .seg button.active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; box-shadow: 0 3px 10px rgba(15,63,107,.25); }
+        #stateSeg button[data-state="depresion"].active { background: #c62828; border-color: #c62828; }
+        #drugSeg button.active:not([data-drug="none"]) { background: var(--color-accent-dark); border-color: var(--color-accent-dark); }
+        .seg button:focus-visible, .stage-buttons button:focus-visible, .nt-table tr:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+        .slider-group input[type=range] { width: 100%; accent-color: var(--color-primary); }
+        .slider-scale { display: flex; justify-content: space-between; font-size: .75em; color: #6b7c88; }
+
+        .lab-stage { position: relative; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #d6e3ef; }
+        #synapseCanvas { display: block; width: 100%; height: auto; }
+        .stage-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; padding: 10px; border-top: 1px solid #eef3f8; background: #f7fafd; }
+
+        .lab-legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: .82em; color: #4a5a66; margin: 12px 4px 16px; }
+        .lab-legend span { display: inline-flex; align-items: center; gap: 6px; }
+        .lab-legend i { display: inline-block; flex: none; }
+        .lg-dot { width: 11px; height: 11px; border-radius: 50%; background: #8b5cf6; border: 2px solid #fff; box-shadow: 0 0 0 1px #8b5cf6; }
+        .lg-tr { width: 10px; height: 16px; border-radius: 3px; background: #0b6e6e; }
+        .lg-rc { width: 16px; height: 11px; border: 3px solid #607080; border-top: none; border-radius: 0 0 8px 8px; }
+        .lg-mao { width: 20px; height: 11px; border-radius: 50%; background: #fde7d9; border: 2px solid #c9431a; }
+        .lg-drug { width: 12px; height: 12px; border-radius: 50%; background: #e03131; }
+
+        .lab-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 14px; }
+        .metric { background: #fff; border: 1px solid #d6e3ef; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px; }
+        .m-label { font-size: .78em; font-weight: 700; color: #5b6b78; text-transform: uppercase; letter-spacing: .6px; }
+        .m-value { font-size: 1.9em; font-weight: 800; color: var(--color-primary); line-height: 1.1; font-variant-numeric: tabular-nums; transition: color .4s; }
+        .m-value.low { color: #c62828; }
+        .m-value.high { color: var(--color-accent-dark); }
+        .m-bar { position: relative; height: 8px; border-radius: 4px; background: #eef3f8; overflow: visible; }
+        .m-bar i { display: block; height: 100%; border-radius: 4px; width: 50%; background: var(--nt, #8b5cf6); transition: width .5s ease, background .4s; }
+        .m-bar i.warm { background: #0b6e6e; }
+        .m-ref { position: absolute; top: -4px; bottom: -4px; left: 50%; width: 2px; background: var(--color-primary); opacity: .6; }
+        .metric small { font-size: .78em; color: #6b7c88; }
+
+        .lab-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .lab-card { background: #fff; border: 1px solid #d6e3ef; border-radius: 10px; padding: 14px 16px; min-width: 0; }
+        .lab-card h4 { margin: 0 0 10px !important; font-size: 1em !important; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px; }
+        #sparkCanvas { display: block; width: 100%; height: 90px; }
+        .spark-note { font-size: .76em; color: #6b7c88; }
+        .status-pill { font-size: .78em; font-weight: 700; padding: 3px 10px; border-radius: 20px; background: #e3eefb; color: var(--color-accent-dark); transition: all .4s; }
+        .status-pill.mid { background: #fff3e0; color: #c25e00; }
+        .status-pill.bad { background: #ffe8e8; color: #c62828; }
+        .sym-func { font-size: .88em; color: #4a5a66; margin-bottom: 10px; }
+        .sym-chips { display: flex; flex-wrap: wrap; gap: 7px; }
+        .sym-chip { font-size: .85em; padding: 6px 11px; border-radius: 16px; border: 1.5px dashed #c9d6e3; color: #9aa8b2; background: #f7fafd; transition: all .5s ease; }
+        .sym-chip.on { border-style: solid; border-color: #c62828; color: #fff; background: #d64545; box-shadow: 0 3px 10px rgba(198,40,40,.25); transform: scale(1.04); }
+
+        .lab-narrative { margin-top: 14px; padding: 16px 18px; border-radius: 10px; background: var(--color-primary); color: #eaf6f6; font-size: .95em; line-height: 1.6; min-height: 70px; }
+        .lab-narrative strong { color: var(--color-accent-light); }
+
+        .nt-table tbody tr { cursor: pointer; transition: transform .2s; }
+        .nt-table tbody tr.selected td { background:#dcebf8 !important; box-shadow:none; }
+
+        .mech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin: 20px 0 25px; }
+        .mech-card { background:#fff; border: 1px solid #d6e3ef; border-radius: 12px; padding: 20px; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
+        .mech-card:hover { transform: translateY(-5px); border-color: var(--color-accent); box-shadow: var(--shadow-lg); }
+        .mech-card p { font-size: .92em; }
+        .mech-icon { width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center; background: var(--color-primary); color: var(--color-accent-light); margin-bottom: 8px; }
+        .mech-icon svg { width: 34px; height: 34px; }
+        .spin-slow { animation: spin 6s linear infinite; }
+        .pulse { animation: pulse 1.8s ease-in-out infinite; }
+        .grow { animation: grow 2.6s ease-in-out infinite; transform-origin: 50% 100%; }
+        .blink { animation: blink 1.4s steps(2, jump-none) infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse { 50% { transform: scale(.82); opacity: .7; } }
+        @keyframes grow { 0%, 100% { transform: scaleY(.85); } 50% { transform: scaleY(1.05); } }
+        @keyframes blink { 50% { opacity: .35; } }
+
+        @media (max-width: 900px) {
+            .cycle-steps { grid-template-columns: 1fr 1fr; }
+            .lab-controls { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+            .synapse-lab { padding: 12px; margin-left: -10px; margin-right: -10px; }
+            .cycle-steps, .lab-bottom, .lab-metrics { grid-template-columns: 1fr; }
+            .seg button { padding: 7px 10px; font-size: .85em; }
+            .stage-buttons { flex-wrap: nowrap; gap: 6px; }
+            .stage-buttons button { padding: 7px 9px; font-size: .78em; white-space: nowrap; }
+            .m-value { font-size: 1.5em; }
+            .section table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; transition: none; }
+            .spin-slow, .pulse, .grow, .blink { animation: none; }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .comparison-table {
+                grid-template-columns: 1fr;
+            }
+
+            .epidemiology {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mtop"><div class="in"><a href="/"><div class="lg"><img src="data:image/webp;base64,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ZUlEeCx4bXA6aWlkOjc1YTk5NWRhLTUxOGItNDc0YS05Njg0LWViMTljYzI5OTE3OWxyZWxhdGlvbnNoaXBocGFyZW50T2YAAAHianVtYgAAAEFqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmFjdGlvbnMudjIAAAAAGGMyc2hMIo9lqq9mx/fsS8nfs+mnAAABmWNib3KiZ2FjdGlvbnOComZhY3Rpb25rYzJwYS5vcGVuZWRqcGFyYW1ldGVyc6FraW5ncmVkaWVudHOBomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDWQz5RmTuGmX41GQymIv44K6MkGkJIFT7FgS+rxaPb9KRmYWN0aW9ueB1jb20uYW50aHJvcGljLmNsYXVkZS5wcm92aWRlZGpwYXJhbWV0ZXJzoXgfY29tLmFudGhyb3BpYy5vcmlnaW4tY29uZmlkZW5jZWd1bmtub3dua2Rlc2NyaXB0aW9ueGZDbGF1ZGUgcHJvdmlkZWQgdGhpcyBmaWxlIGF0IHRoZSByZXF1ZXN0IG9mIGEgdXNlciBhbmQgbWF5IGhhdmUgY3JlYXRlZCBvciBtb2RpZmllZCB0aGUgZmlsZSBjb250ZW50cy5tc29mdHdhcmVBZ2VudKFkbmFtZWZDbGF1ZGVyYWxsQWN0aW9uc0luY2x1ZGVk9QAAAMhqdW1iAAAAQGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaGFzaC5kYXRhAAAAABhjMnNoj6qbBcWQ0iILJyjhqFS5CwAAAIBjYm9ypWNhbGdmc2hhMjU2Y3BhZEwAAAAAAAAAAAAAAABkaGFzaFggfe2JEN1TlJJd+ri+enTuqI9Xi0dqdIDjnQCmzm9WEQ1kbmFtZW5qdW1iZiBtYW5pZmVzdGpleGNsdXNpb25zgaJlc3RhcnQZM5xmbGVuZ3RoGRaHAAACPmp1bWIAAAAnanVtZGMyY2wAEQAQgAAAqgA4m3EDYzJwYS5jbGFpbS52MgAAAAIPY2JvcqVjYWxnZnNoYTI1NmlzaWduYXR1cmV4TXNlbGYjanVtYmY9L2MycGEvdXJuOmMycGE6OThjYzI4OGYtN2MyZC00MjllLWIzMGUtYjJlMzA0MmIzODhjL2MycGEu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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9lhA2jMsuWKh5Jz64XBcNcH7bCv+orl1SLeFiBfCGVdT6QmlKHjQz/ur5D5GM5nlgbrjBbqP6V9/KEz83oD1Kty4OgA=" alt="MedON"></div><div class="t"><b>Trastornos depresivos y bipolar</b><small>STUDENT · SEMIOLOGÍA PSIQUIÁTRICA</small></div></a></div></div>
+    <header class="hero">
+        <div class="header-content">
+            <span class="eyebrow">Student · Semiología psiquiátrica</span>
+            <h1>Trastornos depresivos y trastorno afectivo bipolar</h1>
+            <p class="subtitle">Del afecto y el estado de ánimo a la sinapsis monoaminérgica, los criterios DSM-5, la manía y la conducta suicida.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="toc">
+            <h2>Tabla de Contenidos</h2>
+            <div class="toc-list">
+                <div class="toc-item" data-target="semiologia">01. Semiología Básica</div>
+                <div class="toc-item" data-target="depresion">02. Depresión</div>
+                <div class="toc-item" data-target="epidemiologia">03. Epidemiología</div>
+                <div class="toc-item" data-target="fisiopatologia">04. Fisiopatología</div>
+                <div class="toc-item" data-target="farmacologia">05. Farmacología</div>
+                <div class="toc-item" data-target="trastornos-depresivos">06. Trastornos Depresivos DSM-5</div>
+                <div class="toc-item" data-target="poblaciones">07. Poblaciones Especiales</div>
+                <div class="toc-item" data-target="tab">08. Trastorno Afectivo Bipolar</div>
+                <div class="toc-item" data-target="suicidio">09. Conducta Suicida</div>
+            </div>
+        </div>
+
+        <section class="section" id="semiologia">
+            <h2>01. Semiología Básica: Emoción, Estado de Ánimo y Afecto</h2>
+            
+            <h3>¿Qué es una Emoción?</h3>
+            <div class="definition-box">
+                <p><strong>Definición:</strong> Respuesta psicológica y fisiológica <span class="highlight">automática</span> ante un estímulo interno o externo.</p>
+            </div>
+
+            <h4>Características de las emociones:</h4>
+            <div class="symptom-list">
+                <ul>
+                    <li><strong>Rápida:</strong> Aparece antes del pensamiento</li>
+                    <li><strong>Corporal:</strong> Activa el sistema nervioso (cambios fisiológicos)</li>
+                    <li><strong>Mental:</strong> Sensación consciente del estado emocional</li>
+                </ul>
+            </div>
+
+            <h3>Las Siete Emociones Básicas (Universales)</h3>
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Emociones Primarias Negativas</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Miedo</li>
+                        <li>Tristeza</li>
+                        <li>Ira</li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h4>Emociones Básicas Positivas/Otras</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Alegría</li>
+                        <li>Sorpresa</li>
+                        <li>Asco</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>Características Clave de las Emociones Básicas</h4>
+                <ul>
+                    <li>Son <strong>universales</strong> en todas las culturas</li>
+                    <li>Tienen <strong>expresión facial reconocible</strong> independientemente del contexto cultural</li>
+                    <li><strong>Aparecer antes del pensamiento consciente</strong> (respuesta automática)</li>
+                </ul>
+            </div>
+
+            <h3>Estado de Ánimo vs Afecto: Diferencia Crítica</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Estado de Ánimo</th>
+                        <th>Afecto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Duración</strong></td>
+                        <td>Sostenido y duradero</td>
+                        <td>Manifestación externa e inmediata</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cómo se obtiene</strong></td>
+                        <td><strong>El paciente lo reporta (SÍNTOMA)</strong></td>
+                        <td><strong>El clínico lo observa (SIGNO)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Intensidad</strong></td>
+                        <td>Menos intensa pero más prolongada</td>
+                        <td>Puede fluctuar rápidamente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Origen</strong></td>
+                        <td>Fondo emocional interno del individuo</td>
+                        <td>Expresión observable durante la entrevista</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Clasificación del Estado de Ánimo (Humor)</h3>
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Eutimia</h4>
+                    <p>Ánimo <strong>normal</strong>. Reactividad emocional <strong>conservada y apropiada</strong> al contexto.</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Hipotimia</h4>
+                    <p>Descenso patológico: <strong>tristeza, vacío, desesperanza</strong> persistente.</p>
+                </div>
+            </div>
+
+            <h3>Intensidad del Afecto (Observable por el Clínico)</h3>
+            <div class="symptom-list">
+                <ul>
+                    <li><strong>Aumentado:</strong> Expresión por encima de lo esperado</li>
+                    <li><strong>Disminuido:</strong> Reducción de la intensidad observable</li>
+                    <li><strong>Plano:</strong> Expresión emocional casi nula</li>
+                    <li><strong>Embotado:</strong> Respuesta afectiva significativamente reducida</li>
+                    <li><strong>Lábil:</strong> Fluctuación excesiva durante la evaluación</li>
+                </ul>
+            </div>
+
+            <h3>Cualidad del Afecto</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Definición Clínica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Congruencia</strong></td>
+                        <td><em>Congruente:</em> Dice estar triste y se observa lloroso | <em>Incongruente:</em> Dice estar triste pero sonríe sin razón</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rango</strong></td>
+                        <td><em>Amplio:</em> Expresión rica y flexible | <em>Restringido:</em> Casi la misma expresión toda la entrevista</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adecuación</strong></td>
+                        <td><em>Apropiado:</em> Acorde al contexto | <em>Inapropiado:</em> Habla de algo doloroso y sonríe sin motivo</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="reference">
+                <strong>Referencias:</strong> American Psychiatric Association (2013). DSM-5. Diagnostic and Statistical Manual of Mental Disorders (5th ed.). | Castro Navarro JC, et al. (2024). Manual de Semiología Psiquiátrica (2ª ed.).
+            </div>
+        </section>
+
+        <section class="section" id="depresion">
+            <h2>02. Depresión: Definición, Síntomas y Características</h2>
+
+            <div class="definition-box">
+                <p><strong>Definición (DSM-5):</strong> Trastorno del estado de ánimo con <span class="highlight">tristeza profunda asociada a síntomas concomitantes que provocan disfuncionalidad</span>.</p>
+                <p style="margin-top: 15px;"><em><strong>Nota Crítica:</strong> La depresión NO es simplemente "sentirse triste" - es una condición médica que afecta significativamente la vida de una persona.</em></p>
+            </div>
+
+            <h3>Síntomas Centrales de la Depresión</h3>
+
+            <h4>Síntomas del Ánimo (Afectivos)</h4>
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Hipotimia</h4>
+                    <p><em>"Ánimo triste"</em></p>
+                    <p>Descenso patológico del estado de ánimo, <strong>sostenido la mayor parte del día, casi todos los días.</strong></p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Desesperanza</h4>
+                    <p><em>"Futuro sin sentido"</em></p>
+                    <p>El paciente no proyecta salida ni mejoría. <strong>PREDICTOR CLAVE DE RIESGO SUICIDA.</strong></p>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>Síntomas Motivacionales (Conductuales)</h4>
+                <ul>
+                    <li><strong>Anhedonia:</strong> Pérdida de la capacidad de disfrutar lo que antes daba placer</li>
+                    <li><strong>Abulia:</strong> Disminución o incapacidad para iniciar una actividad</li>
+                    <li><strong>Apatía:</strong> Pérdida del interés e indiferencia afectiva</li>
+                </ul>
+            </div>
+
+            <h4>Síntomas Somáticos (Físicos)</h4>
+            <div class="symptom-list">
+                <ul>
+                    <li>Insomnio o hipersomnia</li>
+                    <li>Fatiga o baja energía</li>
+                    <li>Cambios significativos de apetito o peso</li>
+                    <li>Enlentecimiento o agitación psicomotora</li>
+                </ul>
+            </div>
+
+            <h4>Síntomas Cognitivos</h4>
+            <div class="symptom-list">
+                <ul>
+                    <li>Dificultad para concentrarse</li>
+                    <li>Indecisión</li>
+                    <li>Pensamiento lentificado</li>
+                </ul>
+            </div>
+
+            <div class="warning-box">
+                <h4>SÍNTOMA CRÍTICO - SIEMPRE PREGUNTAR</h4>
+                <p><strong>Ideación de muerte o suicida</strong></p>
+                <p>Este es un síntoma crítico que <strong>DEBE ser evaluado directamente</strong> en todo paciente depresivo.</p>
+            </div>
+        </section>
+
+        <section class="section" id="epidemiologia">
+            <h2>03. Epidemiología de los Trastornos Depresivos</h2>
+
+            <h3>Magnitud del Problema a Nivel Mundial</h3>
+            <div class="epidemiology">
+                <div class="stat-card">
+                    <div class="stat-number">280 M</div>
+                    <div class="stat-label">Personas afectadas en el mundo</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-number">3,8%</div>
+                    <div class="stat-label">Prevalencia global</div>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>Datos Epidemiológicos Mundiales</h4>
+                <ul>
+                    <li><strong>Principal causa de discapacidad</strong> a nivel mundial</li>
+                    <li><strong>2 veces más frecuente en mujeres</strong> que en hombres</li>
+                    <li>Inicio habitual entre la <strong>adolescencia tardía y la adultez joven</strong></li>
+                    <li>Aumento significativo de prevalencia <strong>post-pandemia COVID-19</strong></li>
+                </ul>
+            </div>
+
+            <h3>Prevalencia en Colombia</h3>
+            <div class="epidemiology">
+                <div class="stat-card">
+                    <div class="stat-number">2,2%</div>
+                    <div class="stat-label">Prevalencia anual en mujeres adultas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1,0%</div>
+                    <div class="stat-label">Prevalencia anual en hombres adultos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">4,3%</div>
+                    <div class="stat-label">TDM Mayor a lo largo de la vida</div>
+                </div>
+                <div class="stat-card orange">
+                    <div class="stat-number">1,6%</div>
+                    <div class="stat-label">Incidencia: casos nuevos últimos 12 meses</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="fisiopatologia">
+            <h2>04. Fisiopatología de la Depresión: Más Allá de la "Serotonina Baja"</h2>
+
+            <div class="warning-box reveal">
+                <h4>Concepto Fundamental Incorrecto a Evitar</h4>
+                <p><strong>La depresión NO es simplemente "falta de serotonina"</strong> - este es un trastorno biológico complejo con múltiples mecanismos fisiopatológicos interconectados.</p>
+            </div>
+
+            <h3>La Sinapsis Monoaminérgica en Movimiento</h3>
+            <p class="reveal">Cada vez que llega un potencial de acción, la neurona presináptica libera el neurotransmisor a la hendidura. Allí tiene un tiempo limitado para unirse a los receptores postsinápticos antes de que los <strong>transportadores de recaptación</strong> (SERT, NET, DAT) lo devuelvan a la terminal, donde la <strong>MAO</strong> lo degrada. Si la recaptación es excesiva, la concentración en la hendidura cae y la señal que llega a la neurona postsináptica se debilita.</p>
+
+            <div class="cycle-steps reveal" id="cycleSteps">
+                <div class="cycle-step" data-step="1"><span class="cs-num">1</span><div><strong>Síntesis y almacenamiento</strong><small>El neurotransmisor se empaca en vesículas</small></div></div>
+                <div class="cycle-step" data-step="2"><span class="cs-num">2</span><div><strong>Liberación</strong><small>El potencial de acción fusiona las vesículas</small></div></div>
+                <div class="cycle-step" data-step="3"><span class="cs-num">3</span><div><strong>Unión al receptor</strong><small>Se activa la neurona postsináptica</small></div></div>
+                <div class="cycle-step" data-step="4"><span class="cs-num">4</span><div><strong>Terminación</strong><small>Recaptación por el transportador y degradación por MAO</small></div></div>
+            </div>
+
+            <div class="synapse-lab reveal" id="synapseLab">
+                <div class="lab-controls">
+                    <div class="ctrl-group">
+                        <span class="ctrl-label">Neurotransmisor</span>
+                        <div class="seg" id="ntSeg">
+                            <button type="button" data-nt="5ht" class="active"><i class="dot" style="--c:#8b5cf6"></i>Serotonina</button>
+                            <button type="button" data-nt="na"><i class="dot" style="--c:#f08c00"></i>Noradrenalina</button>
+                            <button type="button" data-nt="da"><i class="dot" style="--c:#1c7ed6"></i>Dopamina</button>
+                        </div>
+                    </div>
+                    <div class="ctrl-group">
+                        <span class="ctrl-label">Estado clínico</span>
+                        <div class="seg" id="stateSeg">
+                            <button type="button" data-state="normal" class="active">Eutimia</button>
+                            <button type="button" data-state="depresion">Depresión</button>
+                        </div>
+                    </div>
+                    <div class="ctrl-group">
+                        <span class="ctrl-label">Fármaco</span>
+                        <div class="seg wrap" id="drugSeg">
+                            <button type="button" data-drug="none" class="active">Ninguno</button>
+                            <button type="button" data-drug="isrs">ISRS</button>
+                            <button type="button" data-drug="isrsn">ISRSN</button>
+                            <button type="button" data-drug="irnd">IRND</button>
+                            <button type="button" data-drug="imao">IMAO</button>
+                        </div>
+                    </div>
+                    <div class="ctrl-group slider-group">
+                        <label class="ctrl-label" for="reupSlider">Actividad de recaptación <output id="reupOut">1,0×</output></label>
+                        <input type="range" id="reupSlider" min="0.02" max="0.3" step="0.01" value="0.06">
+                        <div class="slider-scale"><span>Baja</span><span>Normal</span><span>Excesiva</span></div>
+                    </div>
+                </div>
+
+                <div class="lab-stage">
+                    <canvas id="synapseCanvas" role="img" aria-label="Animación de una sinapsis: liberación del neurotransmisor, unión a receptores postsinápticos y recaptación por transportadores"></canvas>
+                    <div class="stage-buttons">
+                        <button type="button" id="playBtn">⏸ Pausar</button>
+                        <button type="button" id="spikeBtn">Disparar potencial</button>
+                        <button type="button" id="resetBtn">↺ Reiniciar</button>
+                    </div>
+                </div>
+
+                <div class="lab-legend">
+                    <span><i class="lg-dot" id="legendDot"></i><b id="legendNt">5-HT</b> neurotransmisor</span>
+                    <span><i class="lg-tr"></i>Transportador (<b id="legendTr">SERT</b>)</span>
+                    <span><i class="lg-rc"></i>Receptor postsináptico</span>
+                    <span><i class="lg-mao"></i>MAO (mitocondria)</span>
+                    <span><i class="lg-drug"></i>Fármaco bloqueando</span>
+                </div>
+
+                <div class="lab-metrics">
+                    <div class="metric">
+                        <span class="m-label">Concentración en la hendidura</span>
+                        <span class="m-value" id="mConc">100%</span>
+                        <div class="m-bar"><i id="mConcBar"></i><em class="m-ref"></em></div>
+                        <small>respecto a la eutimia</small>
+                    </div>
+                    <div class="metric">
+                        <span class="m-label">Ocupación de receptores</span>
+                        <span class="m-value" id="mOcc">45%</span>
+                        <div class="m-bar"><i id="mOccBar"></i><em class="m-ref" style="left:45%"></em></div>
+                        <small>referencia normal ≈ 45%</small>
+                    </div>
+                    <div class="metric">
+                        <span class="m-label">Moléculas recaptadas</span>
+                        <span class="m-value" id="mUp">0 /s</span>
+                        <div class="m-bar"><i id="mUpBar" class="warm"></i></div>
+                        <small id="mUpNote">transportadores activos: 3</small>
+                    </div>
+                </div>
+
+                <div class="lab-bottom">
+                    <div class="lab-card">
+                        <h4>Concentración en el tiempo</h4>
+                        <canvas id="sparkCanvas" aria-label="Gráfica de concentración del neurotransmisor en los últimos 30 segundos"></canvas>
+                        <small class="spark-note">Banda verde: rango normal · últimos 30 s</small>
+                    </div>
+                    <div class="lab-card">
+                        <h4>Expresión clínica <span class="status-pill" id="statusPill">Neurotransmisión adecuada</span></h4>
+                        <p class="sym-func" id="symFunc"></p>
+                        <div class="sym-chips" id="symChips"></div>
+                    </div>
+                </div>
+
+                <div class="lab-narrative" id="labNarrative" aria-live="polite"></div>
+            </div>
+
+            <div class="info-box reveal">
+                <h4>Cómo usar el laboratorio</h4>
+                <p><strong>1.</strong> Observa la sinapsis en <strong>eutimia</strong>. <strong>2.</strong> Cambia a <strong>depresión</strong>: aparecen más transportadores y la recaptación se acelera; mira cómo cae la concentración y se encienden los síntomas. <strong>3.</strong> Aplica cada fármaco y cambia de neurotransmisor: un ISRS rescata la serotonina pero no la dopamina; el bupropión hace lo contrario.</p>
+            </div>
+
+            <h3>Vía Monoaminérgica Clásica</h3>
+            <p>Aunque incompleta, esta teoría explica parcialmente la depresión mediante déficit de neurotransmisores monoamínicos. <em>Toca una fila para verla en el laboratorio.</em></p>
+
+            <table class="nt-table">
+                <thead>
+                    <tr>
+                        <th>Neurotransmisor</th>
+                        <th>Función Normal</th>
+                        <th>Déficit en Depresión</th>
+                        <th>Ubicación Cerebral</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-nt="5ht" tabindex="0">
+                        <td><strong><i class="dot" style="--c:#8b5cf6"></i>Serotonina (5-HT)</strong></td>
+                        <td>Ánimo, sueño, apetito</td>
+                        <td>↓ Tristeza, ansiedad, pensamiento negativo</td>
+                        <td>Rafe dorsal → área límbica y corteza prefrontal</td>
+                    </tr>
+                    <tr data-nt="na" tabindex="0">
+                        <td><strong><i class="dot" style="--c:#f08c00"></i>Noradrenalina (NA)</strong></td>
+                        <td>Energía y motivación</td>
+                        <td>↓ Fatiga y desconcentración</td>
+                        <td>Locus coeruleus → corteza prefrontal, amígdala</td>
+                    </tr>
+                    <tr data-nt="da" tabindex="0">
+                        <td><strong><i class="dot" style="--c:#1c7ed6"></i>Dopamina (DA)</strong></td>
+                        <td>Recompensa y placer</td>
+                        <td>↓ Anhedonia (pérdida de placer)</td>
+                        <td>Vía mesolímbica y mesocortical</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Otros Mecanismos Fisiopatológicos Emergentes</h3>
+            <div class="mech-grid">
+                <div class="mech-card reveal">
+                    <div class="mech-icon"><svg viewBox="0 0 48 48" class="spin-slow"><circle cx="24" cy="24" r="17" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 6"/><circle cx="24" cy="7" r="4" fill="currentColor"/></svg></div>
+                    <h4>Eje HHA</h4>
+                    <p>El estrés crónico mantiene activo el eje hipotálamo–hipófisis–suprarrenal: <strong>hipercortisolismo sostenido</strong> y falla de la retroalimentación negativa, con efecto tóxico sobre el hipocampo.</p>
+                </div>
+                <div class="mech-card reveal">
+                    <div class="mech-icon"><svg viewBox="0 0 48 48" class="pulse"><circle cx="24" cy="24" r="8" fill="currentColor"/><circle cx="10" cy="14" r="4" fill="currentColor" opacity=".6"/><circle cx="38" cy="14" r="4" fill="currentColor" opacity=".6"/><circle cx="12" cy="37" r="4" fill="currentColor" opacity=".6"/><circle cx="37" cy="36" r="4" fill="currentColor" opacity=".6"/></svg></div>
+                    <h4>Neuroinflamación</h4>
+                    <p>IL-1β, IL-6 y TNF-α activan la enzima IDO, que desvía el triptófano hacia la vía de la quinurenina: <strong>menos sustrato para sintetizar serotonina</strong>.</p>
+                </div>
+                <div class="mech-card reveal">
+                    <div class="mech-icon"><svg viewBox="0 0 48 48" class="grow"><path d="M24 44V22M24 22l-10-10M24 22l10-10M14 12l-5 2M14 12l-1-6M34 12l5 2M34 12l1-6M24 30l-8-4M24 30l8-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg></div>
+                    <h4>Neuroplasticidad</h4>
+                    <p><strong>↓ BDNF</strong>, atrofia dendrítica y reducción del volumen hipocampal. Los antidepresivos aumentan el BDNF a lo largo de semanas.</p>
+                </div>
+                <div class="mech-card reveal">
+                    <div class="mech-icon"><svg viewBox="0 0 48 48" class="blink"><path d="M27 4L11 27h11l-3 17 18-25H25z" fill="currentColor"/></svg></div>
+                    <h4>Sistema glutamatérgico</h4>
+                    <p>La ketamina bloquea el receptor NMDA → aumento de glutamato, activación AMPA, liberación de BDNF y vía mTOR: <strong>sinaptogénesis en horas</strong>.</p>
+                </div>
+            </div>
+
+            <div class="criteria-box reveal">
+                <h4>Pregunta para pensar</h4>
+                <p>Un ISRS bloquea el SERT desde la primera dosis y eleva la serotonina sináptica en horas. Sin embargo, el efecto antidepresivo tarda <strong>2 a 6 semanas</strong>. ¿Qué te dice esto sobre los límites de la hipótesis monoaminérgica? (Pista: desensibilización de autorreceptores 5-HT<sub>1A</sub> y cambios de neuroplasticidad.)</p>
+            </div>
+
+            <div class="reference">
+                <strong>Nota didáctica:</strong> la simulación representa la hipótesis monoaminérgica de forma simplificada. Estudios PET han mostrado mayor densidad de MAO-A en depresión mayor (Meyer et al., 2006), pero los hallazgos sobre los transportadores son heterogéneos; la menor disponibilidad sináptica es un modelo explicativo, no la causa única. | Stahl SM. Stahl's Essential Psychopharmacology (5ª ed.).
+            </div>
+        </section>
+
+        <section class="section" id="farmacologia">
+            <h2>05. Farmacología: Antidepresivos por Mecanismo de Acción</h2>
+
+            <div class="info-box">
+                <h4>Principio Fundamental</h4>
+                <p>Los antidepresivos funcionan <strong>aumentando la disponibilidad de monoaminas en la sinapsis</strong> a través de mecanismos diferentes.</p>
+            </div>
+
+            <h3>Clasificación de Antidepresivos por Mecanismo</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Mecanismo</th>
+                        <th>Ejemplos Clínicos</th>
+                        <th>Efecto Neto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ISRS</strong><br>(Inhibidores Selectivos de Recaptación de Serotonina)</td>
+                        <td>Bloquean SERT (transportador de serotonina)</td>
+                        <td>Fluoxetina, sertralina, escitalopram, paroxetina</td>
+                        <td>↑ Serotonina disponible</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISRSN</strong><br>(ISRS + Noradrenalina)</td>
+                        <td>Bloquean SERT + NET (transportadores)</td>
+                        <td>Venlafaxina, duloxetina</td>
+                        <td>↑ 5-HT y NA disponibles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IRND</strong><br>(Inhibidores Recaptación NA + DA)</td>
+                        <td>Bloquean NET + DAT (transportadores)</td>
+                        <td>Bupropión</td>
+                        <td>↑ NA y DA (útil en anhedonia y fatiga)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>IMAO</strong><br>(Inhibidores Monoamina Oxidasa)</td>
+                        <td>Inhiben enzima MAO (degradación)</td>
+                        <td>Fenelzina, tranilcipromina</td>
+                        <td>↓ Degradación de TODAS las monoaminas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="trastornos-depresivos">
+            <h2>06. Trastornos Depresivos Según DSM-5: Criterios Diagnósticos</h2>
+
+            <h3>Trastorno Depresivo Mayor (TDM)</h3>
+
+            <div class="dsm5-criteria">
+                <h4>Criterios Diagnósticos (DSM-5)</h4>
+                <p><strong>Al menos 5 síntomas durante ≥ 2 semanas, INCLUYENDO UNO de los dos núcleos:</strong></p>
+            </div>
+
+            <h4>Criterios Nucleares (OBLIGATORIOS: necesita ≥1)</h4>
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Núcleo 1: Ánimo Deprimido</h4>
+                    <p>La mayor parte del día, casi todos los días.</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Núcleo 2: Anhedonia</h4>
+                    <p>Pérdida de interés o placer en casi todas las actividades.</p>
+                </div>
+            </div>
+
+            <h4>Los Otros Síntomas (De los cuales se necesitan ≥ 3-4 más)</h4>
+            <div class="symptom-list">
+                <ul>
+                    <li>Cambios significativos de peso o apetito</li>
+                    <li>Insomnio o hipersomnia</li>
+                    <li>Fatiga o pérdida de energía</li>
+                    <li>Enlentecimiento o agitación psicomotora <strong>(OBSERVABLE, no solo subjetivo)</strong></li>
+                    <li>Inutilidad o culpa excesiva</li>
+                    <li>Dificultad para concentrarse o decidir</li>
+                    <li><strong>Pensamientos de muerte o suicida</strong></li>
+                </ul>
+            </div>
+
+            <div class="criteria-box">
+                <h4>Criterios de Disfuncionalidad Obligatoria</h4>
+                <p>Los síntomas <strong>DEBEN causar malestar o deterioro funcional significativo</strong> y <strong>NO explicarse por otra condición médica o sustancia.</strong></p>
+            </div>
+        </section>
+
+        <section class="section" id="tab">
+            <h2>07. Trastorno Afectivo Bipolar (TAB): Definición y Tipos</h2>
+
+            <div class="definition-box">
+                <p><strong>Definición:</strong> Alternancia de episodios <strong>depresivos</strong> y de <strong>ánimo elevado</strong> (manía o hipomanía).</p>
+                <p style="margin-top: 15px;"><strong>Características críticas:</strong> Curso episódico recurrente, alto riesgo de suicidio, requiere tratamiento de estabilización del ánimo a largo plazo.</p>
+            </div>
+
+            <h3>Tipos de TAB Según DSM-5</h3>
+
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Bipolar Tipo I</h4>
+                    <p><strong>Manía severa (≥ 7 días o que requiere hospitalización)</strong>, con o sin episodios depresivos.</p>
+                    <p><span class="highlight">LA MANÍA es el rasgo definitorio.</span></p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Bipolar Tipo II</h4>
+                    <p><strong>Hipomanía (< 7 días) + episodios de depresión mayor</strong>, sin manía completa.</p>
+                    <p><span class="highlight">LA DEPRESIÓN predomina clínicamente.</span></p>
+                </div>
+            </div>
+
+            <h3>Manía: Síntomas y Signos Clínicos</h3>
+
+            <div class="key-points">
+                <h4>Síntomas de Manía (Lo que el paciente reporta)</h4>
+                <ul>
+                    <li><strong>Ánimo elevado persistente:</strong> Euforia, expansivo, irritable</li>
+                    <li><strong>Grandiosidad:</strong> Creencias exageradas de capacidades y poderes</li>
+                    <li><strong>Necesidad reducida de sueño:</strong> Se siente descansado tras solo 3-4 horas</li>
+                    <li><strong>Fuga de ideas:</strong> Pensamiento acelerado, cambios rápidos de tema</li>
+                    <li><strong>Mayor energía y actividad:</strong> "Siento que puedo hacer cualquier cosa"</li>
+                    <li><strong>Impulsividad:</strong> Decisiones precipitadas sin considerar consecuencias</li>
+                </ul>
+            </div>
+
+            <div class="symptom-list">
+                <h4>Signos de Manía (Lo que el clínico observa)</h4>
+                <ul>
+                    <li><strong>Verborrea:</strong> Habla excesiva, presurosa, difícil de interrumpir</li>
+                    <li><strong>Fuga de ideas:</strong> Discurso desorganizado, saltos de tema frecuentes</li>
+                    <li><strong>Agitación psicomotora:</strong> Movimientos excesivos, inquietud motora</li>
+                    <li><strong>Afecto expansivo:</strong> Expresión emocional exagerada</li>
+                    <li><strong>Distraibilidad extrema:</strong> Incapaz de mantener atención, responde a estímulos irrelevantes</li>
+                    <li><strong>Posible psicosis:</strong> Alucinaciones o delirios congruentes con ánimo (grandiosidad, poder)</li>
+                </ul>
+            </div>
+
+            <h4>Conductas de Riesgo en Manía</h4>
+            <div class="warning-box">
+                <p>Las conductas de riesgo son <strong>SIGNOS CLÍNICOS CLAVE</strong> que el clínico debe identificar durante la evaluación. Estas conductas pueden causar <strong>daño financiero, social, legal y físico.</strong></p>
+            </div>
+
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Gasto Excesivo (Derroche)</h4>
+                    <p><strong>Compras impulsivas y excesivas</strong> sin consideración por consecuencias financieras.</p>
+                    <p><em>Ejemplos clínicos:</em> Gasto de ahorros de años en días, compras de artículos costosos innecesarios, deudas de tarjetas de crédito múltiples, regalos extravagantes sin motivo.</p>
+                    <p><strong>Impacto:</strong> Arruina financiera personal y familiar, deudas masivas, pérdida de patrimonio.</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Ludopatía (Juego Patológico)</h4>
+                    <p><strong>Apuestas compulsivas y excesivas</strong> impulsadas por sensación de grandiosidad ("voy a ganar millones").</p>
+                    <p><em>Ejemplos clínicos:</em> Juego en casinos, apuestas deportivas, juegos en línea, loterías compulsivas.</p>
+                    <p><strong>Patrón maníaco:</strong> El paciente cree que "tiene suerte especial" o "puede predecir resultados" - delirio de grandiosidad manifestado en conducta.</p>
+                    <p><strong>Impacto:</strong> Pérdidas financieras catastróficas, endeudamiento, delitos financieros.</p>
+                </div>
+            </div>
+
+            <div class="key-points">
+                <h4>Ejercicio Intenso (Hiperactividad)</h4>
+                <ul>
+                    <li><strong>Ejercicio excesivo sin descanso:</strong> Entrenamientos de 4-6+ horas diarias</li>
+                    <li><strong>Aparente sin fatiga:</strong> El paciente reporta sentir energía infinita, no necesita descansar</li>
+                    <li><strong>Conducta obsesiva:</strong> Imposibilidad de dejar de hacer ejercicio aunque haya lesiones</li>
+                    <li><strong>Ausencia de necesidad de sueño:</strong> Entrena intensamente, duerme 2-3 horas, se siente completamente descansado</li>
+                    <li><strong>Impacto físico:</strong> Lesiones por sobreentrenamiento, deshidratación, agotamiento fisiológico oculto</li>
+                </ul>
+            </div>
+
+            <div class="definition-box">
+                <h4>¿Por qué el paciente con manía realiza estas conductas?</h4>
+                <p><strong>Ausencia de insight + Grandiosidad:</strong> El paciente maníaco NO CREE que algo esté mal. Tiene <span class="highlight">elevada autoestima, sensación de poder ilimitado y creencia de invulnerabilidad.</span></p>
+                <p>Estas conductas se sienten <strong>correctas y necesarias</strong> desde su perspectiva.</p>
+                <p><strong>Falta de inhibición prefrontal:</strong> La corteza prefrontal (juicio, evaluación de riesgo) está inhibida por la manía, permitiendo conductas sin freno ni consecuencias anticipadas.</p>
+            </div>
+
+            <div class="criteria-box">
+                <h4>Criterio de Severidad para Manía (DSM-5)</h4>
+                <p><strong>Duración mínima:</strong> ≥ 7 días consecutivos (o requiere hospitalización)</p>
+                <p><strong>Síntomas nucleares + adicionales:</strong> El ánimo elevado/expansivo/irritable PLUS al menos 3 síntomas adicionales (5 si el ánimo es solo irritable)</p>
+                <p><strong>Criterio funcional:</strong> Marcado deterioro social, laboral u hospitalización</p>
+            </div>
+
+            <h3>Hipomanía: Síntomas y Signos Clínicos</h3>
+
+            <div class="info-box">
+                <h4>¿Cuál es la Diferencia con la Manía?</h4>
+                <p><strong>Hipomanía:</strong> Mismos síntomas CUALITATIVOS que la manía, pero con <strong>MENOR INTENSIDAD, duración < 7 días, SIN psicosis y SIN deterioro funcional marcado.</strong></p>
+                <p>A menudo los pacientes con hipomanía NO reportan que algo está mal - pueden sentirse mejor que nunca.</p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aspecto</th>
+                        <th>Manía</th>
+                        <th>Hipomanía</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Duración</strong></td>
+                        <td>≥ 7 días</td>
+                        <td>3-6 días</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Severidad de síntomas</strong></td>
+                        <td>Severa, incapacitante</td>
+                        <td>Moderada, puede trabajar</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Psicosis</strong></td>
+                        <td>Posible (delirios, alucinaciones)</td>
+                        <td>Ausente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hospitalización</strong></td>
+                        <td>Frecuentemente necesaria</td>
+                        <td>Rara vez necesaria</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Deterioro funcional</strong></td>
+                        <td>Marcado</td>
+                        <td>Mínimo o ausente</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Insight del paciente</strong></td>
+                        <td>Frecuentemente negado</td>
+                        <td>A menudo desconoce el problema</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="warning-box">
+                <h4>RIESGO CLÍNICO CRÍTICO EN MANÍA</h4>
+                <p><strong>Episodios Mixtos:</strong> Cuando manía e depresión coexisten simultáneamente (desesperanza + energía maníaca).</p>
+                <p><strong>Riesgo suicida MÁXIMO.</strong> El paciente tiene la energía de la manía PERO los sentimientos desesperanzadores de la depresión - combinación letal.</p>
+            </div>
+
+            <h3>Ciclotimia: El Trastorno Bipolar Leve y Crónico</h3>
+
+            <div class="definition-box">
+                <p><strong>Definición (DSM-5):</strong> Alternancia crónica de síntomas hipomaníacos LEVES y síntomas depresivos LEVES, <span class="highlight">sin llegar nunca a cumplir criterios completos de hipomanía o depresión mayor.</span></p>
+                <p><strong>Duración mínima:</strong> ≥ 2 años en adultos (≥ 1 año en niños y adolescentes)</p>
+                <p><strong>Característica clave:</strong> Los pacientes <strong>NUNCA están completamente bien</strong> - siempre están fluctuando entre estados depresivos leves e hipomaníacos leves.</p>
+            </div>
+
+            <h4>Características Clínicas de la Ciclotimia</h4>
+
+            <div class="comparison-table">
+                <div class="comparison-item">
+                    <h4>Fase Hipomaníaca Leve</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Energía aumentada (no excesiva)</li>
+                        <li>Ánimo mejorado</li>
+                        <li>Mayor creatividad y productividad</li>
+                        <li>Reducción de sueño (pero no ausencia)</li>
+                        <li><strong>FALTA DE DETERIORO MARCADO</strong></li>
+                    </ul>
+                </div>
+                <div class="comparison-item">
+                    <h4>Fase Depresiva Leve</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li>Tristeza leve a moderada</li>
+                        <li>Baja energía y apatía</li>
+                        <li>Pérdida de interés (parcial)</li>
+                        <li>Cambios en sueño y apetito</li>
+                        <li><strong>NO LLEGA A SER DEPRESIÓN MAYOR</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h4>¿Cómo se Diferencia de TAB I y TAB II?</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Aspecto</th>
+                            <th>TAB I</th>
+                            <th>TAB II</th>
+                            <th>Ciclotimia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ánimo elevado</strong></td>
+                            <td>Manía (severa)</td>
+                            <td>Hipomanía</td>
+                            <td>Hipomanía leve</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Depresión</strong></td>
+                            <td>Depresión mayor</td>
+                            <td>Depresión mayor</td>
+                            <td>Síntomas depresivos leves</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Severidad general</strong></td>
+                            <td>Severa</td>
+                            <td>Moderada-Severa</td>
+                            <td>Leve-Moderada</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hospitalización</strong></td>
+                            <td>Frecuente</td>
+                            <td>Ocasional</td>
+                            <td>Rara</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Duración</strong></td>
+                            <td>Episódica</td>
+                            <td>Episódica</td>
+                            <td>Crónica (≥2 años)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-points">
+                <h4>Características Distintivas de la Ciclotimia</h4>
+                <ul>
+                    <li><strong>Cronificidad:</strong> Patrón continuo durante años o décadas</li>
+                    <li><strong>Periodicidad:</strong> Ciclos predecibles de semanas a meses</li>
+                    <li><strong>Baja morbilidad:</strong> Puede mantener trabajo y relaciones (aunque con dificultad)</li>
+                    <li><strong>Riesgo suicida:</strong> Presente pero menor que en TAB I/II</li>
+                    <li><strong>Insight variable:</strong> Algunos pacientes reconocen el patrón, otros no</li>
+                    <li><strong>Respuesta al tratamiento:</strong> Estabilizadores del ánimo son la base terapéutica</li>
+                </ul>
+            </div>
+
+            <div class="criteria-box">
+                <h4>Criterios DSM-5 para Ciclotimia</h4>
+                <p><strong>A.</strong> Períodos de síntomas hipomaníacos leves (no llena criterios de hipomanía) alternando con períodos de síntomas depresivos leves (no llena criterios de depresión mayor)</p>
+                <p><strong>B.</strong> Durante los últimos 2 años (1 año en niños), estos cambios de ánimo ocurren al menos la mitad de los días</p>
+                <p><strong>C.</strong> Nunca hay 2 meses consecutivos sin síntomas</p>
+                <p><strong>D.</strong> Criterios de TAB I, TAB II, Depresión Persistente o Trastorno Psicótico nunca se han cumplido</p>
+            </div>
+
+            <h3>Epidemiología del TAB</h3>
+            <div class="epidemiology">
+                <div class="stat-card">
+                    <div class="stat-number">37 M</div>
+                    <div class="stat-label">Personas afectadas en el mundo</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">0,5%</div>
+                    <div class="stat-label">De la población mundial</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <p><strong>TAB en Colombia:</strong> TAB I tiene una prevalencia de 1,3% a lo largo de la vida. Alta carga funcional, inicio en juventud, curso recurrente, y alto riesgo suicida.</p>
+            </div>
+        </section>
+
+        <section class="section" id="suicidio">
+            <h2>08. Conducta Suicida: El Espectro Clínico Completo</h2>
+
+            <div class="warning-box">
+                <h4>Concepto Crítico para la Práctica Clínica</h4>
+                <p>La conducta suicida es un <strong>espectro continuo</strong>, NO una categoría binaria. <strong>Todos los niveles del espectro requieren evaluación y tratamiento serio.</strong></p>
+            </div>
+
+            <h3>Tres Niveles del Espectro Suicida (DSM-5)</h3>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nivel</th>
+                        <th>Definición</th>
+                        <th>Ejemplos Clínicos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>1. Pensamiento Suicida</strong></td>
+                        <td>Ideas, deseos o planes sobre la muerte propia</td>
+                        <td>"Quisiera no despertar", "la vida no vale la pena"</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2. Gesto Suicida</strong></td>
+                        <td>Conducta demostrativa SIN intención letal real</td>
+                        <td>Ingesta de pocas pastillas, cortes superficiales</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3. Acto Suicida</strong></td>
+                        <td>Acción CON intención de provocar la muerte</td>
+                        <td>Ahorcamiento, ingesta de tóxicos en dosis potencialmente mortales</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-points">
+                <h4>Evaluación Esencial del Riesgo Suicida</h4>
+                <ul>
+                    <li>¿Ha tenido pensamientos sobre estar mejor si estuviera muerto?</li>
+                    <li>¿Ha pensado en suicidarse? ¿Cómo se lo haría?</li>
+                    <li>¿Tiene un plan específico? ¿Acceso a medios?</li>
+                    <li>¿Ha intentado suicidarse antes?</li>
+                    <li>¿Siente que puede controlar estos pensamientos?</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p style="font-size:15px;line-height:1.6">Herramienta de apoyo educativo para profesionales y estudiantes de la salud. No sustituye el juicio clínico ni la valoración individual de cada paciente. Ante riesgo suicida, activa la ruta de atención de tu institución (en Colombia, Línea 106 o 192 opción 4).</p>
+            <p style="font-size:13px;opacity:.8">Contenido elaborado de forma independiente por MedON; no está afiliado ni avalado por las organizaciones citadas.</p>
+            <p style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;opacity:.85">© 2026 MedON · Medicina interactiva</p>
+        </div>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Mostrar/ocultar botón volver arriba
+        window.addEventListener('scroll', function() {
+            const btn = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
+
+        // Navegación interna suave - items de tabla de contenidos
+        document.querySelectorAll('.toc-item[data-target]').forEach(item => {
+            item.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Botón volver arriba
+        const backToTopBtn = document.getElementById('backToTop');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            });
+        }
+    </script>
+    <script>
+/* ===== Motor de la sinapsis monoaminérgica (sin DOM) ===== */
+function SynapseEngine(rng) {
+    this.rand = rng || Math.random;
+    this.W = 800; this.H = 460;
+    this.preY = 170; this.postY = 290;
+    this.xMin = 110; this.xMax = 690;
+    this.sites = [330, 400, 470];
+    this.receptors = [215, 290, 365, 435, 510, 585].map(function (x) { return { x: x, p: null, glow: 0 }; });
+    this.allTransporters = [255, 545, 205, 595, 160, 640];
+    this.particles = [];
+    this.inside = [];
+    this.fusions = [];
+    this.pulses = [];
+    this.flashes = [];
+    // parámetros
+    this.diff = 120;              // coeficiente de difusión (px/√s)
+    this.reuptake = 0.06;        // probabilidad base de captura por contacto
+    this.transporterCount = 3;
+    this.releaseBase = 14;
+    this.block = 0;              // fracción de bloqueo del transportador (fármaco)
+    this.maoi = false;
+    this.auto = true;
+    this.spikeInterval = 1.6;
+    this.timeToSpike = 0.4;
+    // métricas
+    this.occEMA = 0; this.concEMA = 0; this.uptakeRate = 0;
+    this.uptakeCount = 0; this.uptakeWindow = 0;
+    this.lastEvent = { spike: -9, bind: -9, uptake: -9 };
+    this.time = 0;
+    this.apFlash = 0;
+}
+SynapseEngine.prototype.transporters = function () {
+    return this.allTransporters.slice(0, this.transporterCount);
+};
+SynapseEngine.prototype.releaseAmount = function () {
+    return Math.round(this.releaseBase * (this.maoi ? 1.45 : 1));
+};
+SynapseEngine.prototype.spike = function () {
+    var r = this.rand, n = this.releaseAmount();
+    for (var i = 0; i < n; i++) {
+        var s = this.sites[Math.floor(r() * this.sites.length)];
+        this.particles.push({
+            x: s + (r() - 0.5) * 20, y: this.preY + 3,
+            vx: (r() - 0.5) * 40, vy: 30 + r() * 45,
+            state: 'free', age: 0, t: 0
+        });
+    }
+    for (var k = 0; k < this.sites.length; k++) this.fusions.push({ x: this.sites[k], t: 0 });
+    this.lastEvent.spike = this.time;
+    this.apFlash = 1;
+};
+SynapseEngine.prototype.step = function (dt) {
+    var r = this.rand, self = this;
+    this.time += dt;
+    this.apFlash = Math.max(0, this.apFlash - dt * 2.5);
+    if (this.auto) {
+        this.timeToSpike -= dt;
+        if (this.timeToSpike <= 0) { this.spike(); this.timeToSpike = this.spikeInterval; }
+    }
+    var tr = this.transporters();
+    var kUp = this.reuptake * (1 - this.block);
+    var pUp = 1 - Math.pow(1 - kUp, dt * 60);
+    var pBind = 1 - Math.pow(1 - 0.12, dt * 60);
+    var alive = [];
+    for (var i = 0; i < this.particles.length; i++) {
+        var p = this.particles[i];
+        p.age += dt;
+        if (p.state === 'free') {
+            var damp = Math.max(0, 1 - 4 * dt);           // deriva inicial que se amortigua
+            p.vx *= damp; p.vy *= damp;
+            var jit = 0.55 * this.diff * Math.sqrt(3 * dt);  // difusión browniana
+            p.x += p.vx * dt + (r() - 0.5) * jit;
+            p.y += p.vy * dt + (r() - 0.5) * jit * 0.6;
+            if (p.y < this.preY + 3) { p.y = this.preY + 3; p.vy = Math.abs(p.vy); }
+            if (p.y > this.postY - 3) { p.y = this.postY - 3; p.vy = -Math.abs(p.vy); }
+            if (p.x < this.xMin + 4 || p.x > this.xMax - 4) {
+                if (r() < 0.04) continue;                       // difunde fuera de la sinapsis
+                p.vx = (p.x < 400 ? 1 : -1) * Math.abs(p.vx);
+                p.x = Math.min(this.xMax - 4, Math.max(this.xMin + 4, p.x));
+            }
+            if (p.age > 20) continue;                            // degradación extracelular lenta
+            // unión al receptor
+            var done = false;
+            if (p.y > this.postY - 13) {
+                for (var j = 0; j < this.receptors.length; j++) {
+                    var rc = this.receptors[j];
+                    if (!rc.p && Math.abs(p.x - rc.x) < 12 && r() < pBind) {
+                        p.state = 'bound'; p.t = 0.25 + r() * 0.35; p.x = rc.x; p.y = this.postY - 7;
+                        rc.p = p; rc.glow = 1;
+                        this.pulses.push({ x: rc.x, t: 0 });
+                        this.lastEvent.bind = this.time;
+                        done = true; break;
+                    }
+                }
+            }
+            // recaptación por el transportador
+            if (!done && p.y < this.preY + 22) {
+                for (var m = 0; m < tr.length; m++) {
+                    if (Math.abs(p.x - tr[m]) < 18 && r() < pUp) {
+                        p.state = 'uptake'; p.t = 0; p.tx = tr[m]; p.sy = p.y;
+                        this.uptakeCount++;
+                        this.lastEvent.uptake = this.time;
+                        break;
+                    }
+                }
+            }
+        } else if (p.state === 'bound') {
+            p.t -= dt;
+            if (p.t <= 0) {
+                for (var q = 0; q < this.receptors.length; q++) if (this.receptors[q].p === p) this.receptors[q].p = null;
+                p.state = 'free'; p.vy = -35 - r() * 20; p.vx = (r() - 0.5) * 40; p.y = this.postY - 14;
+            }
+        } else if (p.state === 'uptake') {
+            p.t += dt;
+            var f = Math.min(1, p.t / 0.35);
+            p.x += (p.tx - p.x) * Math.min(1, dt * 12);
+            p.y = p.sy + (this.preY - 26 - p.sy) * f;
+            if (f >= 1) {
+                var degrade = r() < (this.maoi ? 0.08 : 0.5);
+                this.inside.push({
+                    x: p.x, y: p.y, t: 0,
+                    tx: degrade ? 612 + (r() - 0.5) * 30 : 300 + r() * 200,
+                    ty: degrade ? 84 + (r() - 0.5) * 14 : 70 + r() * 50,
+                    degrade: degrade
+                });
+                continue;
+            }
+        }
+        alive.push(p);
+    }
+    this.particles = alive;
+    // partículas dentro de la terminal (reciclaje / MAO)
+    this.inside = this.inside.filter(function (q) {
+        q.t += dt;
+        q.x += (q.tx - q.x) * Math.min(1, dt * 3);
+        q.y += (q.ty - q.y) * Math.min(1, dt * 3);
+        if (q.degrade && q.t > 0.8 && !q.flashed) { q.flashed = true; self.flashes.push({ x: q.x, y: q.y, t: 0 }); }
+        return q.t < (q.degrade ? 0.9 : 1.2);
+    });
+    this.receptors.forEach(function (rc) { rc.glow = Math.max(rc.p ? 0.6 : 0, rc.glow - dt * 2); });
+    this.fusions = this.fusions.filter(function (f) { f.t += dt; return f.t < 0.6; });
+    this.pulses = this.pulses.filter(function (f) { f.t += dt; return f.t < 0.9; });
+    this.flashes = this.flashes.filter(function (f) { f.t += dt; return f.t < 0.5; });
+    // métricas
+    var free = 0, bound = 0;
+    for (var a = 0; a < this.particles.length; a++) {
+        if (this.particles[a].state === 'free') free++;
+        if (this.particles[a].state === 'bound') bound++;
+    }
+    var occ = bound / this.receptors.length;
+    var alpha = 1 - Math.exp(-dt / 2.5);
+    this.occEMA += (occ - this.occEMA) * alpha;
+    this.concEMA += (free + bound - this.concEMA) * alpha;
+    this.uptakeWindow += dt;
+    if (this.uptakeWindow >= 1) {
+        this.uptakeRate += (this.uptakeCount / this.uptakeWindow - this.uptakeRate) * 0.5;
+        this.uptakeCount = 0; this.uptakeWindow = 0;
+    }
+};
+
+/* ===== Laboratorio sináptico: render y controles ===== */
+(function () {
+    var lab = document.getElementById('synapseLab');
+    if (!lab) return;
+
+    var NT = {
+        '5ht': { name: 'serotonina', Name: 'Serotonina', abbr: '5-HT', tr: 'SERT', color: '#8b5cf6',
+            func: 'Regula ánimo, sueño, apetito y control de impulsos. Proyecta desde los núcleos del rafe dorsal al sistema límbico y la corteza prefrontal.',
+            sym: ['Ánimo deprimido', 'Ansiedad', 'Pensamiento negativo y culpa', 'Insomnio', 'Alteración del apetito'] },
+        'na': { name: 'noradrenalina', Name: 'Noradrenalina', abbr: 'NA', tr: 'NET', color: '#f08c00',
+            func: 'Sostiene energía, alerta y atención. Proyecta desde el locus coeruleus a la corteza prefrontal y la amígdala.',
+            sym: ['Fatiga y baja energía', 'Dificultad de concentración', 'Enlentecimiento psicomotor', 'Apatía'] },
+        'da': { name: 'dopamina', Name: 'Dopamina', abbr: 'DA', tr: 'DAT', color: '#1c7ed6',
+            func: 'Codifica recompensa, placer y motivación por las vías mesolímbica y mesocortical.',
+            sym: ['Anhedonia', 'Abulia (sin motivación)', 'Enlentecimiento psicomotor', 'Dificultad de concentración'] }
+    };
+    var DRUGS = {
+        none: { label: 'Ninguno', blocks: {} },
+        isrs: { label: 'ISRS', ex: 'fluoxetina, sertralina, escitalopram', blocks: { '5ht': 0.85 } },
+        isrsn: { label: 'ISRSN', ex: 'venlafaxina, duloxetina', blocks: { '5ht': 0.8, 'na': 0.75 } },
+        irnd: { label: 'IRND', ex: 'bupropión', blocks: { 'na': 0.6, 'da': 0.6 } },
+        imao: { label: 'IMAO', ex: 'fenelzina, tranilcipromina', blocks: {}, mao: true }
+    };
+    var STATES = {
+        normal: { reuptake: 0.06, transporterCount: 3, releaseBase: 14 },
+        depresion: { reuptake: 0.30, transporterCount: 5, releaseBase: 6 }
+    };
+    var REF_OCC = 0.45, REF_CONC = 59, BASE_K = 0.06;
+
+    var cur = { nt: '5ht', state: 'normal', drug: 'none', custom: false, playing: true, visible: true };
+    var eng = new SynapseEngine();
+    var history = [];
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var canvas = document.getElementById('synapseCanvas'), ctx = canvas.getContext('2d');
+    var spark = document.getElementById('sparkCanvas'), sctx = spark.getContext('2d');
+    var slider = document.getElementById('reupSlider');
+    var $ = function (id) { return document.getElementById(id); };
+    var cssW = 800, dpr = 1, VIEW = { x: 0, w: 800, h: 460 }, narrow = false;
+
+    function fmt(n, d) { return n.toFixed(d || 0).replace('.', ','); }
+
+    /* ---------- parámetros ---------- */
+    function apply() {
+        var st = STATES[cur.state], dr = DRUGS[cur.drug];
+        eng.transporterCount = st.transporterCount;
+        eng.releaseBase = st.releaseBase;
+        eng.reuptake = cur.custom ? parseFloat(slider.value) : st.reuptake;
+        if (!cur.custom) slider.value = st.reuptake;
+        eng.block = dr.blocks[cur.nt] || 0;
+        eng.maoi = !!dr.mao;
+        $('reupOut').textContent = fmt(eng.reuptake / BASE_K, 1) + '×';
+        var c = NT[cur.nt].color;
+        lab.style.setProperty('--nt', c);
+        $('legendDot').style.background = c;
+        $('legendDot').style.boxShadow = '0 0 0 1px ' + c;
+        $('legendNt').textContent = NT[cur.nt].abbr;
+        $('legendTr').textContent = NT[cur.nt].tr;
+        $('symFunc').textContent = NT[cur.nt].func;
+        $('symChips').innerHTML = NT[cur.nt].sym.map(function (s) { return '<span class="sym-chip">' + s + '</span>'; }).join('');
+        document.querySelectorAll('.nt-table tbody tr').forEach(function (tr) { tr.classList.toggle('selected', tr.dataset.nt === cur.nt); });
+        updateUI(true);
+    }
+    function setActive(segId, attr, val) {
+        $(segId).querySelectorAll('button').forEach(function (b) {
+            var on = b.dataset[attr] === val;
+            b.classList.toggle('active', on);
+            b.setAttribute('aria-pressed', on);
+        });
+    }
+    function selectNT(nt) { cur.nt = nt; setActive('ntSeg', 'nt', nt); eng.particles = []; eng.inside = []; eng.receptors.forEach(function (r) { r.p = null; }); apply(); }
+
+    $('ntSeg').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) selectNT(b.dataset.nt); });
+    $('stateSeg').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        cur.state = b.dataset.state; cur.custom = false; setActive('stateSeg', 'state', cur.state); if (cur.state === 'depresion') { eng.particles = eng.particles.filter(function (q, i) { return i % 3 === 0; }); } apply();
+    });
+    $('drugSeg').addEventListener('click', function (e) {
+        var b = e.target.closest('button'); if (!b) return;
+        cur.drug = b.dataset.drug; setActive('drugSeg', 'drug', cur.drug); apply();
+    });
+    slider.addEventListener('input', function () { cur.custom = true; apply(); });
+    $('playBtn').addEventListener('click', function () { cur.playing = !cur.playing; syncPlay(); });
+    $('spikeBtn').addEventListener('click', function () { eng.spike(); if (!cur.playing) { cur.playing = true; syncPlay(); } });
+    $('resetBtn').addEventListener('click', function () {
+        cur = { nt: cur.nt, state: 'normal', drug: 'none', custom: false, playing: true, visible: cur.visible };
+        setActive('stateSeg', 'state', 'normal'); setActive('drugSeg', 'drug', 'none');
+        eng = new SynapseEngine(); history = []; apply(); syncPlay();
+    });
+    function syncPlay() { $('playBtn').textContent = cur.playing ? '⏸ Pausar' : '▶ Reanudar'; }
+
+    document.querySelectorAll('.nt-table tbody tr').forEach(function (tr) {
+        var go = function () { selectNT(tr.dataset.nt); lab.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
+        tr.addEventListener('click', go);
+        tr.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    });
+
+    /* ---------- tamaño ---------- */
+    function resize() {
+        cssW = canvas.clientWidth || 800;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        narrow = cssW < 560;
+        VIEW = narrow ? { x: 105, w: 590, h: 430 } : { x: 0, w: 800, h: 460 };
+        canvas.width = Math.round(cssW * dpr);
+        canvas.height = Math.round(cssW * VIEW.h / VIEW.w * dpr);
+        var sw = spark.clientWidth || 300;
+        spark.width = Math.round(sw * dpr); spark.height = Math.round(90 * dpr);
+    }
+    window.addEventListener('resize', resize);
+
+    /* ---------- dibujo ---------- */
+    function rgba(hex, a) {
+        var n = parseInt(hex.slice(1), 16);
+        return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+    }
+    function text(s, x, y, size, color, align, weight) {
+        var fs = Math.min(1.6, Math.max(1, 560 / cssW * VIEW.w / 800));
+        ctx.font = (weight || 600) + ' ' + Math.round(size * fs) + 'px "Segoe UI", system-ui, sans-serif';
+        ctx.fillStyle = color; ctx.textAlign = align || 'center'; ctx.textBaseline = 'middle';
+        ctx.fillText(s, x, y);
+    }
+    var VES = [[300, 92], [350, 66], [404, 98], [456, 68], [508, 96], [372, 128], [440, 130]];
+    var DOTS = [[-6, -5], [5, -6], [0, 2], [-7, 6], [7, 6], [0, -11], [-1, 10]];
+
+    function draw() {
+        var e = eng, c = NT[cur.nt].color, s = cssW / VIEW.w;
+        ctx.setTransform(s * dpr, 0, 0, s * dpr, -VIEW.x * s * dpr, 0);
+        ctx.clearRect(0, 0, 800, 460);
+
+        // hendidura
+        var g = ctx.createLinearGradient(0, e.preY, 0, e.postY);
+        g.addColorStop(0, rgba(c, 0.04)); g.addColorStop(1, rgba(c, 0.10));
+        ctx.fillStyle = g; ctx.fillRect(100, e.preY, 600, e.postY - e.preY);
+
+        // neurona presináptica
+        ctx.beginPath();
+        ctx.moveTo(110, -10); ctx.lineTo(110, 125); ctx.quadraticCurveTo(110, 170, 155, 170);
+        ctx.lineTo(645, 170); ctx.quadraticCurveTo(690, 170, 690, 125); ctx.lineTo(690, -10); ctx.closePath();
+        ctx.fillStyle = '#e3eefb'; ctx.fill();
+        ctx.lineWidth = 5; ctx.strokeStyle = '#0f3f6b'; ctx.stroke();
+
+        // neurona postsináptica
+        ctx.beginPath();
+        ctx.moveTo(110, 470); ctx.lineTo(110, 335); ctx.quadraticCurveTo(110, 290, 155, 290);
+        ctx.lineTo(645, 290); ctx.quadraticCurveTo(690, 290, 690, 335); ctx.lineTo(690, 470); ctx.closePath();
+        ctx.fillStyle = '#eaf2fa'; ctx.fill(); ctx.stroke();
+
+        // rótulos laterales
+        if (!narrow) { ctx.save(); ctx.translate(60, 0); ctx.rotate(-Math.PI / 2);
+        text('Presináptica', -85, 0, 14, '#0f3f6b', 'center', 700);
+        text('Hendidura', -230, 0, 13, '#4a5a66', 'center', 600);
+        text('Postsináptica', -375, 0, 14, '#0f3f6b', 'center', 700);
+        ctx.restore(); }
+        else { text('Presináptica', 160, 22, 12, '#0f3f6b', 'left', 700); text('Postsináptica', 160, 448 - 30, 12, '#0f3f6b', 'left', 700); }
+
+        // potencial de acción
+        var ap = e.apFlash;
+        ctx.globalAlpha = 0.35 + 0.65 * ap;
+        ctx.fillStyle = ap > 0.05 ? '#f59f00' : '#9fb2c4';
+        ctx.beginPath(); ctx.moveTo(405, 6); ctx.lineTo(392, 30); ctx.lineTo(402, 30); ctx.lineTo(396, 46); ctx.lineTo(412, 24); ctx.lineTo(402, 24); ctx.closePath(); ctx.fill();
+        ctx.globalAlpha = 1;
+        if (ap > 0.05) text('Potencial de acción', 470, 26, 12, '#c25e00', 'left', 700);
+
+        // vesículas (carga)
+        var load = e.maoi ? 1 : (cur.state === 'depresion' ? 0.45 : 0.86);
+        var nd = Math.round(DOTS.length * load);
+        VES.forEach(function (v, i) {
+            var wob = Math.sin(e.time * 2 + i) * 1.5;
+            ctx.beginPath(); ctx.arc(v[0], v[1] + wob, 17, 0, Math.PI * 2);
+            ctx.fillStyle = '#fff'; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = rgba(c, 0.8); ctx.stroke();
+            ctx.fillStyle = c;
+            for (var d = 0; d < nd; d++) { ctx.beginPath(); ctx.arc(v[0] + DOTS[d][0], v[1] + wob + DOTS[d][1], 2.6, 0, Math.PI * 2); ctx.fill(); }
+        });
+
+        // fusión vesicular (exocitosis)
+        e.fusions.forEach(function (f) {
+            var p = f.t / 0.6;
+            ctx.beginPath(); ctx.arc(f.x, e.preY - 4 + p * 4, 15 * (1 - p) + 3, Math.PI * (1 + p * 0.9), Math.PI * (2 - p * 0.9), true);
+            ctx.lineWidth = 3; ctx.strokeStyle = rgba(c, 1 - p); ctx.stroke();
+            ctx.beginPath(); ctx.arc(f.x, e.preY + 6, 6 + p * 26, 0, Math.PI); ctx.lineWidth = 2; ctx.strokeStyle = rgba(c, 0.5 * (1 - p)); ctx.stroke();
+        });
+
+        // MAO en mitocondria
+        ctx.beginPath(); ctx.ellipse(612, 84, 54, 25, -0.08, 0, Math.PI * 2);
+        ctx.fillStyle = '#fde7d9'; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = '#c9431a'; ctx.stroke();
+        ctx.beginPath();
+        for (var k = 0; k < 4; k++) { var xx = 580 + k * 20; ctx.moveTo(xx, 70); ctx.quadraticCurveTo(xx + 8, 84, xx, 98); }
+        ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(201,67,26,.45)'; ctx.stroke();
+        text('MAO', 612, 84, 14, '#9c2f0e', 'center', 800);
+        if (e.maoi) {
+            ctx.strokeStyle = '#e03131'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+            ctx.beginPath(); ctx.moveTo(578, 62); ctx.lineTo(646, 106); ctx.moveTo(646, 62); ctx.lineTo(578, 106); ctx.stroke();
+            ctx.lineCap = 'butt';
+            text('inhibida', 612, 122, 11, '#e03131', 'center', 700);
+        }
+
+        // partículas dentro de la terminal
+        e.inside.forEach(function (q) {
+            var life = q.degrade ? 0.9 : 1.2, a = 1 - q.t / life;
+            ctx.beginPath(); ctx.arc(q.x, q.y, 3.6, 0, Math.PI * 2);
+            ctx.fillStyle = q.degrade && q.t > 0.5 ? rgba('#868e96', a) : rgba(c, Math.max(0, a));
+            ctx.fill();
+        });
+        e.flashes.forEach(function (f) {
+            var p = f.t / 0.5;
+            ctx.beginPath(); ctx.arc(f.x, f.y, 4 + p * 12, 0, Math.PI * 2);
+            ctx.strokeStyle = 'rgba(201,67,26,' + (1 - p) + ')'; ctx.lineWidth = 2; ctx.stroke();
+        });
+
+        // transportadores
+        var tr = e.transporters(), recent = e.time - e.lastEvent.uptake < 0.25;
+        tr.forEach(function (tx, i) {
+            var extra = i >= 3;
+            ctx.fillStyle = extra ? '#b33939' : '#0b6e6e';
+            roundRect(tx - 10, e.preY - 18, 20, 30, 5); ctx.fill();
+            ctx.fillStyle = 'rgba(255,255,255,.75)'; ctx.fillRect(tx - 2.5, e.preY - 15, 5, 24);
+            if (!narrow || i < 2) text(NT[cur.nt].tr, tx, e.preY - 30, 11, extra ? '#b33939' : '#0b6e6e', 'center', 800);
+            if (extra) {
+                ctx.beginPath(); ctx.arc(tx + 13, e.preY - 20, 7, 0, Math.PI * 2); ctx.fillStyle = '#f08c00'; ctx.fill();
+                text('+', tx + 13, e.preY - 20.5, 11, '#fff', 'center', 900);
+            }
+            if (e.block > 0) {
+                ctx.globalAlpha = 0.35 + 0.65 * e.block;
+                ctx.beginPath(); ctx.arc(tx, e.preY + 15, 8, 0, Math.PI * 2); ctx.fillStyle = '#e03131'; ctx.fill();
+                ctx.fillStyle = '#fff'; ctx.fillRect(tx - 4.5, e.preY + 13.5, 9, 3);
+                ctx.globalAlpha = 1;
+            }
+        });
+
+        // receptores postsinápticos
+        e.receptors.forEach(function (rc) {
+            var x = rc.x, y = e.postY;
+            ctx.fillStyle = rc.glow > 0 ? rgba(c, 0.25 + 0.6 * rc.glow) : '#cfd8dc';
+            roundRect(x - 13, y - 4, 26, 16, 4); ctx.fill();
+            ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.strokeStyle = rc.glow > 0 ? c : '#607080';
+            ctx.beginPath(); ctx.moveTo(x - 10, y - 2); ctx.lineTo(x - 10, y - 16); ctx.moveTo(x + 10, y - 2); ctx.lineTo(x + 10, y - 16); ctx.stroke();
+            ctx.lineCap = 'butt';
+        });
+        e.pulses.forEach(function (pu) {
+            var p = pu.t / 0.9;
+            ctx.beginPath(); ctx.arc(pu.x, e.postY + 14, 6 + p * 40, 0.15 * Math.PI, 0.85 * Math.PI);
+            ctx.lineWidth = 3; ctx.strokeStyle = rgba(c, 0.6 * (1 - p)); ctx.stroke();
+        });
+
+        // partículas en la hendidura
+        e.particles.forEach(function (p) {
+            ctx.beginPath(); ctx.arc(p.x, p.y, 4.4, 0, Math.PI * 2);
+            ctx.fillStyle = c; ctx.fill();
+            ctx.lineWidth = 1.2; ctx.strokeStyle = '#fff'; ctx.stroke();
+        });
+
+        // señal transmitida
+        var sig = Math.min(1.3, e.occEMA / REF_OCC);
+        text('Señal transmitida', 400, 372, 13, '#0f3f6b', 'center', 700);
+        ctx.fillStyle = '#d6e3ef'; roundRect(220, 388, 360, 16, 8); ctx.fill();
+        ctx.fillStyle = sig < 0.75 ? '#d64545' : c; roundRect(220, 388, Math.max(8, 360 * Math.min(1, sig / 1.3)), 16, 8); ctx.fill();
+        ctx.fillStyle = '#0f3f6b'; ctx.fillRect(220 + 360 / 1.3 - 1, 383, 2.5, 26);
+        text('normal', 220 + 360 / 1.3, 420, 10, '#4a5a66', 'center', 600);
+    }
+    function roundRect(x, y, w, h, r) {
+        ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+        ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+    }
+
+    function drawSpark() {
+        var w = spark.width / dpr, h = 90, c = NT[cur.nt].color;
+        sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        sctx.clearRect(0, 0, w, h);
+        var max = 160, y = function (v) { return h - 8 - (Math.min(v, max) / max) * (h - 16); };
+        sctx.fillStyle = 'rgba(31,111,178,.14)'; sctx.fillRect(0, y(115), w, y(85) - y(115));
+        sctx.strokeStyle = 'rgba(15,63,107,.35)'; sctx.setLineDash([4, 4]); sctx.beginPath(); sctx.moveTo(0, y(100)); sctx.lineTo(w, y(100)); sctx.stroke(); sctx.setLineDash([]);
+        sctx.font = '600 10px "Segoe UI", sans-serif'; sctx.fillStyle = '#4a5a66'; sctx.textAlign = 'left';
+        sctx.fillText('100%', 4, y(100) - 5);
+        if (history.length < 2) return;
+        sctx.beginPath();
+        history.forEach(function (v, i) { var x = w - (history.length - 1 - i) * (w / 299); i ? sctx.lineTo(x, y(v)) : sctx.moveTo(x, y(v)); });
+        sctx.lineWidth = 2.5; sctx.strokeStyle = c; sctx.lineJoin = 'round'; sctx.stroke();
+        var last = history[history.length - 1];
+        sctx.beginPath(); sctx.arc(w - 3, y(last), 4, 0, Math.PI * 2); sctx.fillStyle = c; sctx.fill();
+    }
+
+    /* ---------- métricas y narrativa ---------- */
+    var lastUI = 0;
+    function updateUI(force) {
+        var concPct = eng.concEMA / REF_CONC * 100, occPct = eng.occEMA * 100;
+        $('mConc').textContent = Math.round(concPct) + '%';
+        $('mConc').className = 'm-value' + (concPct < 75 ? ' low' : concPct > 125 ? ' high' : '');
+        $('mConcBar').style.width = Math.min(100, concPct / 2) + '%';
+        $('mOcc').textContent = Math.round(occPct) + '%';
+        $('mOcc').className = 'm-value' + (occPct < 34 ? ' low' : '');
+        $('mOccBar').style.width = Math.min(100, occPct) + '%';
+        $('mUp').textContent = fmt(eng.uptakeRate, 1) + ' /s';
+        $('mUpBar').style.width = Math.min(100, eng.uptakeRate * 9) + '%';
+        $('mUpNote').textContent = 'transportadores ' + NT[cur.nt].tr + ' activos: ' + eng.transporterCount + (eng.block ? ' (bloqueados ' + Math.round(eng.block * 100) + '%)' : '');
+
+        var deficit = Math.max(0, Math.min(1, (REF_OCC - eng.occEMA) / (REF_OCC * 0.4)));
+        var chips = $('symChips').children;
+        for (var i = 0; i < chips.length; i++) chips[i].classList.toggle('on', deficit > 0.15 + i * (0.6 / chips.length));
+        var pill = $('statusPill');
+        pill.className = 'status-pill' + (deficit > 0.55 ? ' bad' : deficit > 0.2 ? ' mid' : '');
+        pill.textContent = deficit > 0.55 ? 'Neurotransmisión muy disminuida' : deficit > 0.2 ? 'Neurotransmisión disminuida' : 'Neurotransmisión adecuada';
+
+        // pasos del ciclo
+        var t = eng.time, ev = eng.lastEvent, steps = document.querySelectorAll('.cycle-step');
+        var act = { 1: true, 2: t - ev.spike < 0.5, 3: t - ev.bind < 0.35, 4: t - ev.uptake < 0.35 };
+        steps.forEach(function (st) { st.classList.toggle('active', !!act[st.dataset.step] && cur.playing); });
+
+        if (force || performance.now() - lastUI > 900) { narrate(concPct, deficit); lastUI = performance.now(); }
+    }
+    function narrate(concPct, deficit) {
+        var n = NT[cur.nt], dr = DRUGS[cur.drug], txt;
+        var symp = n.sym.slice(0, 3).join(', ').toLowerCase();
+        if (cur.drug !== 'none' && !dr.mao && !dr.blocks[cur.nt]) {
+            txt = 'El <strong>' + dr.label + '</strong> (' + dr.ex + ') <strong>no bloquea el ' + n.tr + '</strong>: la ' + n.name + ' sigue recaptándose al mismo ritmo y su concentración no mejora. Cambia de neurotransmisor para ver dónde sí actúa.';
+        } else if (dr.mao) {
+            txt = 'El <strong>IMAO</strong> (' + dr.ex + ') inhibe la MAO dentro de la terminal: la ' + n.name + ' recaptada <strong>ya no se degrada</strong>, se re-almacena en las vesículas y cada potencial de acción libera más moléculas. Actúa sobre las tres monoaminas a la vez.';
+        } else if (dr.blocks[cur.nt]) {
+            txt = 'El <strong>' + dr.label + '</strong> (' + dr.ex + ') ocupa el <strong>' + n.tr + '</strong> y bloquea ~' + Math.round(dr.blocks[cur.nt] * 100) + '% de la recaptación. La ' + n.name + ' permanece más tiempo en la hendidura, alcanza más receptores y la concentración sube a <strong>' + Math.round(concPct) + '%</strong> de lo normal.';
+        } else if (cur.custom) {
+            txt = 'Recaptación ajustada a <strong>' + fmt(eng.reuptake / BASE_K, 1) + '× la normal</strong>. ' + (eng.reuptake > 0.09 ? 'El ' + n.tr + ' retira la ' + n.name + ' antes de que se una a los receptores: concentración en <strong>' + Math.round(concPct) + '%</strong>.' : 'Con menos recaptación, la ' + n.name + ' se acumula y la señal postsináptica se mantiene o aumenta.');
+        } else if (cur.state === 'depresion') {
+            txt = 'En el modelo de depresión hay <strong>más transportadores ' + n.tr + '</strong> en la membrana (marcados con +) y recaptan más rápido. La ' + n.name + ' se retira de la hendidura antes de alcanzar los receptores: la concentración cae a <strong>' + Math.round(concPct) + '%</strong>, la señal postsináptica se debilita y aparecen ' + symp + '.';
+        } else {
+            txt = 'En <strong>eutimia</strong>, cada potencial de acción libera ' + n.name + ' (' + n.abbr + '). Las moléculas difunden, activan los receptores postsinápticos y el <strong>' + n.tr + '</strong> recapta el excedente a un ritmo equilibrado: la concentración se mantiene estable.';
+        }
+        $('labNarrative').innerHTML = txt;
+    }
+
+    /* ---------- bucle ---------- */
+    var prev = 0, histAcc = 0, SLOW = 0.16; // velocidad de la hendidura (1 = original)
+    function loop(ts) {
+        var dt = Math.min(0.05, (ts - prev) / 1000 || 0); prev = ts;
+        if (cur.playing && cur.visible) {
+            eng.step(dt * SLOW);
+            histAcc += dt * SLOW;
+            if (histAcc >= 0.1) { histAcc = 0; history.push(eng.concEMA / REF_CONC * 100); if (history.length > 300) history.shift(); }
+            updateUI(false);
+        }
+        draw(); drawSpark();
+        requestAnimationFrame(loop);
+    }
+
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (en) { cur.visible = en[0].isIntersecting; }, { threshold: 0.05 }).observe(lab);
+    }
+    // calentar el estado estacionario para que los indicadores arranquen estables
+    for (var w = 0; w < 600; w++) eng.step(1 / 60);
+    if (reduceMotion) cur.playing = false;
+    resize(); apply(); syncPlay();
+    requestAnimationFrame(loop);
+})();
+
+/* ===== Aparición al hacer scroll ===== */
+(function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) { els.forEach(function (el) { el.classList.add('visible'); }); return; }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('visible'); io.unobserve(en.target); } });
+    }, { threshold: 0.12 });
+    els.forEach(function (el) { io.observe(el); });
+})();
+
+    </script>
+<script>(function(){const items=[...document.querySelectorAll('.toc-item')];const secs=items.map(i=>document.getElementById(i.dataset.target));function on(){const y=window.scrollY+170;let k=0;secs.forEach((s,i)=>{if(s&&s.offsetTop<=y)k=i;});items.forEach((it,i)=>it.classList.toggle('active',i===k));}window.addEventListener('scroll',on,{passive:true});on();})();</script>
+</body>
+</html>
